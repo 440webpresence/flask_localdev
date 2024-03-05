@@ -1,14 +1,13 @@
 from flask import Flask, render_template, send_from_directory
 from flask_socketio import SocketIO
-import os
-
+import os 
 app = Flask(__name__)
-app.config.from_pyfile('servercfg.cfg')
+app.config.from_pyfile('madeaconfig.py')
 socketio = SocketIO(app)
 
 @app.route('/')
 def index():
-    return(send_from_directory('.', 'index.html'))
+    return(send_from_directory('.', 'bootstraps.html'))
 
 @socketio.on('connect')
 def handle_connect():
